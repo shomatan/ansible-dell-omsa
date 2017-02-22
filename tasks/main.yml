@@ -10,7 +10,7 @@
 
 # web interface service
 - name: Ensure OMSA services are started and enabled to start at boot.
-  service: name=dsm_om_connsvc state=started enabled=yes
+  service: name={{ item }} state=started enabled=yes
   with_items:
     - instsvcdrv
     - dsm_sa_ipmi
