@@ -1,0 +1,17 @@
+---
+- name: Install Dell OpenManage repository.
+  apt_repository:
+    repo: "deb http://linux.dell.com/repo/community/ubuntu {{ ansible_distribution_release }} openmanage"
+    filename: /etc/apt/sources.list.d/linux.dell.com.sources.list
+
+- name: Install gpg key.
+  apt_key:
+    keyserver: pool.sks-keyservers.net
+    id: 1285491434D8786F
+
+- name: Ensure srvadmin-all is installed
+  apt:
+    name: srvadmin-all
+    update_cache: yes
+    cache_valid_time: 0
+    force: yes
