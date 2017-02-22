@@ -9,5 +9,12 @@
   static: no
 
 # web interface service
-- name: Ensure OMSA web interface is started and enabled to start at boot.
+- name: Ensure OMSA services are started and enabled to start at boot.
   service: name=dsm_om_connsvc state=started enabled=yes
+  with_items:
+    - instsvcdrv
+    - dsm_sa_ipmi
+    - mptctl
+    - dsm_om_connsvc
+    - dsm_om_shrsvc
+    - dataeng
