@@ -6,4 +6,8 @@
 
 - include: setup-Ubuntu.yml
   when: ansible_distribution == 'Ubuntu'
-  static: no  
+  static: no
+
+# web interface service
+- name: Ensure OMSA web interface is started and enabled to start at boot.
+  service: name=dsm_om_connsvc state=started enabled=yes
