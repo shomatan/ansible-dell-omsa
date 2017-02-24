@@ -1,0 +1,5 @@
+---
+dell_omsa_privs:
+  - { name: root, host: "*", privs: Administrator }
+  - { name: +root, host: "*", privs: Poweruser }
+  - { name: "*", host: "*", privs: User# }

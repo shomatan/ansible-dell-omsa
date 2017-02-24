@@ -8,7 +8,12 @@
   when: ansible_distribution == 'Ubuntu'
   static: no
 
-# web interface service
+- name: Copy OMSA login config.
+  template:
+    src: omarolemap.j2
+    dest: /opt/dell/srvadmin/etc/omarolemap
+
+# services
 - name: Ensure OMSA services are started and enabled to start at boot.
   service: name={{ item }} state=started enabled=yes
   with_items:
